@@ -53,6 +53,7 @@ public class RotateIt {
             if (next == null) return;
             level.setBlock(pos, state.setValue(BlockStateProperties.FACING, next), 3);
             level.playSound(null, pos, sound.getPlaceSound(), SoundSource.BLOCKS, (sound.getVolume() + 1.0F) / 2.0F, sound.getPitch() * 0.8F);
+            player.swing(InteractionHand.MAIN_HAND, true);
             event.setCanceled(true);
         });
         if (!event.isCanceled()) state.getOptionalValue(BlockStateProperties.HORIZONTAL_FACING).ifPresent(d -> {
@@ -60,6 +61,7 @@ public class RotateIt {
             if (next == null) return;
             level.setBlock(pos, state.setValue(BlockStateProperties.HORIZONTAL_FACING, next), 3);
             level.playSound(null, pos, sound.getPlaceSound(), SoundSource.BLOCKS, (sound.getVolume() + 1.0F) / 2.0F, sound.getPitch() * 0.8F);
+            player.swing(InteractionHand.MAIN_HAND, true);
             event.setCanceled(true);
         });
     }
